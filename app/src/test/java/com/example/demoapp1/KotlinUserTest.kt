@@ -30,4 +30,21 @@ class KotlinUserTest {
             .isTrue;
     }
 
+    @Test
+    fun testFindUserOnForEach() {
+        val user1 = KotlinUser("first1", "last1");
+        val user2 = KotlinUser("first2", "last2");
+        val user3 = KotlinUser("first3", "last3");
+
+        val users = arrayOf(user1, user2, user3)
+        var foundUser: KotlinUser? = null;
+        users.forEach {
+            if(it.firstName.equals("first3")){
+                foundUser = it
+            }
+        }
+
+        assertThat(foundUser).isNotNull;
+    }
+
 }
