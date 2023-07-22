@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             val originalCountValue = textDisplayedValue.text.toString()
             var incrementedValue = Integer.valueOf(originalCountValue).inc()
             textDisplayedValue.text = incrementedValue.toString()
+
         }
 
     }
