@@ -1,31 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="121dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints">
+    <Spinner
+        android:id="@+id/spinnerCourses"
+        android:layout_width="340dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/incrementButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Increment"
-            android:visibility="visible" />
+    <EditText
+        android:id="@+id/textNoteTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Note title"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCourses" />
 
-        <TextView
-            android:id="@+id/textDisplayedValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/textNoteTExt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Note text"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+        app:layout_constraintTop_toBottomOf="@+id/textNoteTitle" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="49dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="?android:attr/textSelectHandle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

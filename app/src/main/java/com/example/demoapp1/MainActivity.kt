@@ -1,27 +1,27 @@
 package com.example.demoapp1
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.example.demoapp1.dto.CourseInfo
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var incrementButton: Button
-    private lateinit var textDisplayedValue: TextView
+    private lateinit var spinnerCourses: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        spinnerCourses = findViewById(R.id.spinnerCourses)
 
-        incrementButton = findViewById(R.id.incrementButton)
-        textDisplayedValue = findViewById(R.id.textDisplayedValue)
+        val dataManager = DataManager()
+        val adapterCourses = ArrayAdapter<CourseInfo>(
+            this,
+            android.R.layout.simple_spinner_item,
+            dataManager.coursesById.values.toList()
+        )
+        adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        incrementButton.setOnClickListener {
-            val originalCountValue = textDisplayedValue.text.toString()
-            var incrementedValue = Integer.valueOf(originalCountValue).inc()
-            textDisplayedValue.text = incrementedValue.toString()
-
-        }
-
+        spinnerCourses.adapter = adapterCourses
     }
 }
